@@ -4,6 +4,7 @@ import { useCart } from "@/lib/cartStore";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Checkout() {
     const { items, getTotalPrice } = useCart();
@@ -64,14 +65,14 @@ export default function Checkout() {
                 <div className="border rounded-lg p-6 mb-8">
                     <h2 className="text-xl font-semibold mb-4">お支払い方法</h2>
                     <div className="grid grid-cols-3 gap-4">
-                        <Button variant="outline" className="flex items-center justify-center">
-                            <img src="https://www.paypay.ne.jp/assets/img/brand/paypay_logo.svg" alt="PayPay" className="h-6" />
+                        <Button variant="outline" className="h-16 flex items-center justify-center">
+                            <Image src="/images/PayPay.svg" alt="PayPay" width={120} height={40} className="object-contain" />
                         </Button>
-                        <Button variant="outline" className="flex items-center justify-center">
-                            <img src="https://line.me/static/logo/linepay_logo.svg" alt="LINE Pay" className="h-6" />
+                        <Button variant="outline" className="h-16 flex items-center justify-center">
+                            <Image src="/images/Line.svg" alt="LINE Pay" width={120} height={40} className="object-contain" />
                         </Button>
-                        <Button variant="outline" className="flex items-center justify-center">
-                            <img src="https://www.rakuten.co.jp/com/assets/img/logo/rakuten_pay_logo.svg" alt="Rakuten Pay" className="h-6" />
+                        <Button variant="outline" className="h-16 flex items-center justify-center">
+                            <Image src="/images/Rakuten.svg" alt="Rakuten Pay" width={120} height={40} className="object-contain" />
                         </Button>
                     </div>
                     <p className="text-sm text-muted-foreground mt-4">Pro 版內建 Shopify Payment Gateway 整合</p>

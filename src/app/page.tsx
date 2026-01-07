@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/products";
 
@@ -36,6 +37,7 @@ export default function Home() {
             ))}
           </div>
         </section>
+        <Footer />
       </main>
     </>
   );
