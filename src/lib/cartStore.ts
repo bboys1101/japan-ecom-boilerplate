@@ -32,13 +32,13 @@ export const useCart = create<CartStore>((set, get) => ({
     set((state) => ({ items: state.items.filter((item) => item.id !== id) })),
   updateQuantity: (id, quantity) =>
     set((state) => ({
-    items: state.items
-      .map((item) =>
-        item.id === id 
-          ? { ...item, quantity: Math.max(1, quantity) } 
-          : item
-      )
-      .filter((item) => item.quantity > 0),  // 自動移除 quantity <= 0 的商品
+      items: state.items
+        .map((item) =>
+          item.id === id
+            ? { ...item, quantity: Math.max(1, quantity) }
+            : item
+        )
+        .filter((item) => item.quantity > 0),  // 自動移除 quantity <= 0 的商品
     })),
   getTotalPrice: () => {
     const subtotal = get().items.reduce((sum, item) => sum + item.price * item.quantity, 0);

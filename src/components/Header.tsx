@@ -1,9 +1,10 @@
 "use client";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button"; 
+import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
-import { useCart } from "@/lib/cartStore"; 
-import Image from "next/image";  
+import { useCart } from "@/lib/cartStore";
+import Image from "next/image";
+import Link from "next/link";
 
 
 export function Header() {
@@ -11,7 +12,7 @@ export function Header() {
   const itemCount = getItemCount();
   const { items, updateQuantity, removeItem, getTotalPrice } = useCart();
   const totalPrice = getTotalPrice();
-  
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -25,8 +26,8 @@ export function Header() {
               <ShoppingCart className="h-6 w-6" />
               {/* 購物車數量小徽章 */}
               <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">
-              {itemCount}
-            </span>
+                {itemCount}
+              </span>
             </button>
           </SheetTrigger>
 
@@ -52,9 +53,9 @@ export function Header() {
                         <p className="text-sm text-muted-foreground">¥{item.price.toLocaleString()}</p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Button 
-                          size="sm" 
-                          variant="outline" 
+                        <Button
+                          size="sm"
+                          variant="outline"
                           disabled={item.quantity === 1}  // ← 數量 1 時變灰，不能點
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
                         >
@@ -75,7 +76,9 @@ export function Header() {
                   <span>合計（税込）</span>
                   <span>¥{totalPrice.toLocaleString()}</span>
                 </div>
-                <Button className="w-full mt-4" size="lg">レジに進む</Button>
+                <Button className="w-full mt-4" size="lg" asChild>
+                  <Link href="/checkout">レジに進む</Link>
+                </Button>
               </div>
             )}
           </SheetContent>
