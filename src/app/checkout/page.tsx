@@ -16,7 +16,6 @@ export default function Checkout() {
         <main className="min-h-screen bg-background py-12 px-4">
             <div className="container mx-auto max-w-2xl">
                 <h1 className="text-3xl font-bold mb-8">お支払い</h1>
-
                 {/* 訂單摘要 */}
                 <div className="border rounded-lg p-6 mb-8">
                     <h2 className="text-xl font-semibold mb-4">注文内容</h2>
@@ -75,7 +74,7 @@ export default function Checkout() {
                             <Image src="/images/Rakuten.svg" alt="Rakuten Pay" width={120} height={40} className="object-contain" />
                         </Button>
                     </div>
-                    <p className="text-sm text-muted-foreground mt-4">Pro 版內建 Shopify Payment Gateway 整合</p>
+                    <p className="text-sm text-muted-foreground mt-4">Pro版には Shopify Payment Gateway 完全統合例を搭載</p>
                 </div>
 
                 <Button className="w-full" size="lg">注文を確定する</Button>
